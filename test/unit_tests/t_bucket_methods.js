@@ -395,6 +395,8 @@ suite('Test Bucket Methods.', function() {
     const locale = 'US'
     const status = 'published'
     const sort = 'date'
+    const hide_metafields = true
+    const q = 'wedding'
 
     /* stub out a request to URI/addBucket, only intercept if query and route match */
     const reqNock = nock(`${URI}`)
@@ -408,6 +410,8 @@ suite('Test Bucket Methods.', function() {
       locale,
       status,
       sort,
+      hide_metafields,
+      q,
     })
     .reply(200, {
       objectTypes
@@ -423,6 +427,8 @@ suite('Test Bucket Methods.', function() {
       locale,
       status,
       sort,
+      hide_metafields,
+      q,
     })
     .then(data => {
         expect(data.objectTypes.length).to.equal(objectTypes.length)

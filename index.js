@@ -146,6 +146,12 @@ const Cosmic = (config) => {
 				if (params && params.status) {
 					endpoint += `&status=${params.status}`
 				}
+				if (params && params.hide_metafields) {
+					endpoint += `&hide_metafields=${params.hide_metafields}`
+				}
+				if (params && params.q) {
+					endpoint += `&q=${params.q}`
+				}
 				return axios.get(endpoint)
 					.then(response => response.data)
 					.catch((error) => {
